@@ -1,23 +1,27 @@
 {
-  "name": "appshell-generator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jackson Gross",
-  "license": "ISC",
-  "dependencies": {
-    "@blinkmobile/appcache-fetcher": "blinkmobile/appcache-fetcher.js",
-    "commander": "^2.8.1",
-    "cordova": "^5.3.3",
-    "ionic": "^1.6.5",
-    "jsonfile": "^2.2.2",
-    "shelljs": "^0.5.3"
-  },
-  "preferGlobal": true,
-  "bin": {
-    "appshell-generator": "index.js"
-  }
+    "name": "appshell-generator",
+    "version": "1.0.0",
+    "description": "A command-line utility to generate and build cordova apps for manifest-enabled web applications.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jackson Gross",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@blinkmobile/appcache-fetcher": "blinkmobile/appcache-fetcher.js",
+        "commander": "^2.8.1",
+        "cordova": "^5.3.3",
+        "ionic": "^1.6.5",
+        "jsonfile": "^2.2.2",
+        "shelljs": "^0.5.3"
+    },
+    "preferGlobal": true,
+    "bin": {
+        "appshell-generator": "index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jacksonGross/appshell-generator.git"
+    }
 }
