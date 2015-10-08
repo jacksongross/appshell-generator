@@ -2,7 +2,6 @@
 
 var shell = require('shelljs');
 var jsonfile = require('jsonfile');
-
 var file = 'shellfile.json';
 
 jsonfile.readFile(file, function(err, config) {
