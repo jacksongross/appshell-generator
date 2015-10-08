@@ -1,18 +1,19 @@
 {
     "name": "Demo13",
+    "displayName": "Demo 13",
     "identifier": "com.acresta.acdemo13",
     "answerspace": "https://acresta.eps.blinkm.co/demo13",
     "icon": "/Users/jackson/Desktop/logo.png",
-    "splash": "/Users/jackson/Desktop/screen-mdpi-landscape.png",
+    "splash": "/Users/jackson/Desktop/splash.png",
     "platform": ["ios", "android"],
     "plugins": [
-        "cordova.plugin.device",
-        "cordova.plugin.geolocation",
-        "cordova.plugin.camera",
-        "cordova.plugin.media-capture",
-        "cordova.plugin.media",
-        "cordova.plugin.file",
-        "cordova.plugin.splashscreen",
-        "cordova.plugin.inappbrowser"
+        "cordova-plugin-device",
+        "cordova-plugin-geolocation",
+        "cordova-plugin-camera",
+        "cordova-plugin-media-capture",
+        "cordova-plugin-media",
+        "cordova-plugin-file",
+        "cordova-plugin-splashscreen",
+        "cordova-plugin-inappbrowser"
     ]
 }
