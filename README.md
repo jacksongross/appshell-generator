@@ -2,16 +2,15 @@
 A command-line utility to generate and build cordova apps for manifest-enabled web applications. Specify a shellfile.json containing configuration for your app, including icon and splashcreen assets, cordova plugins to include and target platforms.
 
 ## Usage
-Create a shellfile.json file and run the appshell-generator command.
+Create a shellfile.json file in your working directory and run the appshell-generator command:
+```bash
+$ appshell-generator
+```
 
 ## Supported platforms and build targets
 appshell-generator supports OSX, Linux and Windows.
 Build targets can be ios, android or windows. 
 Refer to https://cordova.apache.org/docs/en/5.1.1/guide/cli/index.html#link-1 for more information.
-
-<code bash>
-$ apshell-generator
-</code>
 
 ## Example shellfile.json
 ```json
