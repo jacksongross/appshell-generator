@@ -50,7 +50,9 @@ jsonfile.readFile(file, function(err, config) {
         var linesArray = [];
         lines.forEach(function(line) {
             if (line.indexOf('</widget>') === 0) {
-                line = '<hook type="before_build" src="lib/content-security.js" />\n' + line;
+                line = '<hook type="before_build" src="lib/hot-reload.js" />\n' +
+                    '<hook type="before_build" src="lib/content-security.js" />\n' +
+                    line;
             }
             linesArray.push(line);
         });
