@@ -3,10 +3,11 @@
 var shell = require('shelljs');
 var jsonfile = require('jsonfile');
 var os = require('os');
+var fs = require('fs');
 
 var file = 'shellfile.json';
 
-Array.prototype.includes = function(element){
+Array.prototype.includes = function(element) {
     return this.indexOf(element) > -1;
 };
 
@@ -34,8 +35,28 @@ jsonfile.readFile(file, function(err, config) {
 
     shell.exec('rm -rf ' + config.name + '/www');
     shell.exec('node $(npm config get prefix)/lib/node_modules/appshell-generator/node_modules/@blinkmobile/appcache-fetcher/index.js ' + config.answerspace + ' ' + config.name + '/www');
+    shell.exec('cp build.json ' + config.name + '/');
+
 
     shell.cd(config.name);
+
+    // move the cordova hooks to lib and insert line into config.xml
+    shell.mkdir('lib');
+    shell.exec('cp $(npm config get prefix)/lib/node_modules/appshell-generator/lib/* lib/');
+
+    var contents = fs.readFileSync('config.xml', "utf8");
+    if (contents) {
+        var lines = contents.split('\n');
+        var linesArray = [];
+        lines.forEach(function(line) {
+            if (line.indexOf('</widget>') === 0) {
+                line = '<hook type="before_build" src="lib/content-security.js" />\n' + line;
+            }
+            linesArray.push(line);
+        });
+        var file = linesArray.join('\n');
+        fs.writeFileSync('config.xml', file, 'utf8');
+    }
 
     config.platform.forEach(function(platform) {
         shell.exec('cordova platform add ' + platform);
@@ -51,7 +72,7 @@ jsonfile.readFile(file, function(err, config) {
     if (config.splash) shell.cp(config.splash, 'resources/splash.png');
     shell.exec('ionic resources');
 
-    shell.exec('cordova build');
+    shell.exec('cordova build --device --release --buildConfig ');
 
     console.log('done!');
 });
